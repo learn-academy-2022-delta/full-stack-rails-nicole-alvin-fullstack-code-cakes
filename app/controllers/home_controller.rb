@@ -9,11 +9,16 @@ class HomeController < ApplicationController
         @blogs = Blog.new
     end
     def create
-        @blog = Blog.create( )
+        @blog = Blog.create(form_params)
+        puts '#{form_params}'
+        if @blog.valid?
+            redirect_to blogs_path
+        else
+            redirect_to form_path
+        end
     end
-
     private
-    def blog_params
+    def form_params
         params.require(:blog).permit(:title, :content)
     end
 end

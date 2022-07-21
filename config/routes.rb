@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
   get 'blogs' => 'home#index', as:'blogs'
+  get 'blogs/new' => 'home#new', as:'new_form'
   post 'blogs' => 'home#create'
-  get 'blogs/new' => 'home#new', as:'form'
   get 'blogs/:id' => 'home#show', as:'blog'
+  get 'blogs/:id/edit' => 'home#edit', as: 'edit_form'
+  patch 'blogs/:id' => 'home#update'
+  delete 'blogs/:id' => 'home#destroy', as: 'delete_form'
 root 'blog#index'
 end
 
-# I used to pray for times like this to code like this, 
-# So I had to, grind like that, to shine like this, in a matter of time I spent on some JumpStart ish. In the back of the Zoom class, Code locked on Git. 

@@ -1,13 +1,13 @@
-<h3>Create a new Blog Post </h3>
+<h1>Edit your Post </h1>
 
-<%= form_with model: @blog do |form| %>
+<%= form_with model: @blog, method: :patch do |form| %>
     <%= form.label :title %>
     <%= form.text_field :title %>
     <br/>
     <%= form.label :content %>
     <%= form.text_area :content %>
     <br/>
-    <%= form.submit 'Sumbit your Post'%>
+    <%= form.submit 'Edit Post'%>
 <% end %>
 
 <br/>
